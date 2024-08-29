@@ -29,3 +29,42 @@ Install the required Python libraries:
 
 ```bash
 pip install opencv-python roboflow
+```
+
+## Usage
+
+### Convert Annotations
+1. Run the `pascalVOC_to_yolo.py` script to convert annotations from PascalVOC to YOLOv8 format.
+
+   ```bash
+   python pascalVOC_to_yolo.py --input_dir <input_directory> --output_dir <output_directory>
+   ```
+
+   Replace `<input_directory>` with the path to your PascalVOC annotations and `<output_directory>` with the path where YOLOv8 formatted annotations should be saved.
+
+### Train Models
+1. Train YOLOv8 models using Roboflow:
+   - Log in to Roboflow and create a new project for person detection and another for PPE detection.
+   - Upload the converted YOLOv8 dataset to Roboflow.
+   - Follow Roboflow's instructions to train the models.
+
+### Run Inference
+1. Execute the `inference.py` script to process images through the person detection and PPE detection models.
+
+   ```bash
+   python inference.py --input_dir <input_directory> --output_dir <output_directory>
+   ```
+
+   - `<input_directory>`: Directory containing images for inference.
+   - `<output_directory>`: Directory where results, including images with detected PPE items, will be saved.
+
+## Scripts
+- `pascalVOC_to_yolo.py`: Converts PascalVOC annotations to YOLOv8 format.
+- `inference.py`: Runs inference using the trained YOLOv8 models for person and PPE detection.
+
+## Notes
+- Ensure to replace the API key in the scripts with your own Roboflow API key.
+- The output images with detected PPE items will be saved in the `ppe_detection_images` directory.
+
+## Contact
+For any questions or issues, please contact patelzeelpramodbhai@gmail.com.
